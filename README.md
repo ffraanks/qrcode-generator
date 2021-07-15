@@ -1,5 +1,4 @@
 # QRCode Generator
-## Atenção, esse é um fork do projeto orignal, para ter acesso ao original [clique aqui](https://github.com/ffraanks/qrcode-generator)
 
 ## Dependências
 ```
