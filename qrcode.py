@@ -41,7 +41,6 @@ def qr_wifi():
 3) WPA/WPA2-Personal\n\n"""))
     #Clear
     os.system("clear")
-
     if SEC == 1:
         code = pyqrcode.create(f"WIFI:S:{SSID};T:nopass;P:;;")
         # Salva o QRCode gerado no local desejado
@@ -80,4 +79,8 @@ def init():
         os.system("clear")
         init()
 
-init()
+try:
+    init()
+except KeyboardInterrupt:
+    os.system('clear')
+    exit()
