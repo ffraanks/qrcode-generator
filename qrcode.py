@@ -3,13 +3,14 @@
 # pip install --user pyqrcode
 # pip install --user pypng
 
-
 import os
 import pyqrcode
 import png
 from pyqrcode import QRCode
 from time import sleep
+
 os.system("clear")
+
 #Função que gera QR Code de um link
 def qr_link():
 
@@ -26,7 +27,7 @@ def qr_link():
     code.png( f"{PNG}.png" , scale=8)
 
 def qr_wifi():
-        
+
     #Clear
     os.system("clear")
 
