@@ -64,16 +64,111 @@ def qr_wifi():
         PNG = input('Digite aqui o nome da sua imagem gerada (Exemplo: QRcode1.png):\n\n')
         code.png( f"{PNG}.png" , scale=8)
 
+
+def qr_email():
+    os.system("clear")
+
+    DEST = input("Digite o destinatário do e-mail:\n\n")
+
+    os.system("clear")
+
+    ASSUNTO = input("Digite o assunto do e-mail:\n\n")
+
+    os.system("clear")
+
+    CONTEUDO = input("Digite aqui o conteudo do email:\n\n")
+
+    os.system("clear")
+
+    code = pyqrcode.create(f"MATMSG:TO:{DEST};SUB:{ASSUNTO};BODY:{CONTEUDO};;")
+    PNG = input('Digite aqui o nome da sua imagem gerada (Exemplo: QRcode1.png):\n\n')
+    code.png( f"{PNG}.png" , scale=8)
+
+def basic_contact():
+    os.system("clear")
+
+    P_NOME = str(input("Digite o primeiro nome do contato:\n\n"))
+
+    os.system("clear")
+
+    S_NOME = str(input("Digite o sobrenome do contato:\n\n"))
+    
+    os.system("clear")
+
+    TEL = input("Digite o número de telefone do contato:\n\n")
+
+    os.system("clear")
+
+    code = pyqrcode.create(f"""BEGIN:VCARD
+VERSION:2.1
+N;CHARSET=UTF-8:{S_NOME};{P_NOME}
+FN;CHARSET=UTF-8:{P_NOME} {S_NOME}
+TEL:{TEL}
+END:VCARD""")
+
+    PNG = input('Digite aqui o nome da sua imagem gerada (Exemplo: QRcode1.png):\n\n')
+    code.png( f"{PNG}.png" , scale=8)
+
+def contact():
+    os.system("clear")
+
+    P_NOME = str(input("Digite o primeiro nome do contato:\n\n"))
+
+    os.system("clear")
+
+    S_NOME = str(input("Digite o sobrenome do contato:\n\n"))
+    
+    os.system("clear")
+
+    TEL = input("Digite o número de telefone do contato:\n\n")
+
+    os.system("clear")
+
+    COMP = input("Digite o nome da empresa ou companhia do contato:\n\n")
+
+    os.system("clear")
+
+    CARGO = input('Digite seu cargo dentro da empresa:\n\n')
+
+    os.system("clear")
+
+    EMAIL = input("Digite o E-mail do contato:\n\n")
+
+    os.system("clear")
+
+    code = pyqrcode.create(f"""BEGIN:VCARD
+VERSION:2.1
+N;CHARSET=UTF-8:{S_NOME};{P_NOME}
+FN;CHARSET=UTF-8:{P_NOME} {S_NOME}
+ORG:{COMP}
+TITLE:{CARGO}
+TEL:{TEL}
+EMAIL:{EMAIL}
+END:VCARD""")
+
+    PNG = input('Digite aqui o nome da sua imagem gerada (Exemplo: QRcode1.png):\n\n')
+    code.png( f"{PNG}.png" , scale=8)
+
+
 def init():
     print("""Escolha o tipo de QRcode que você deseja criar:
 1) Link
-2) Senha de wi-fi\n""")
+2) Senha de wi-fi
+3) E-Mail
+4) Contato Básico
+5) Contato""")
     opcao = int(input())
 
     if opcao == 1:
         qr_link()
     elif opcao == 2:
         qr_wifi()
+    elif opcao == 3:
+        qr_email()
+    elif opcao == 4:
+        basic_contact()
+    elif opcao == 5:
+        contact()
     else:
         print("Opção não encontrada, tente novamente:")
         sleep(2)
