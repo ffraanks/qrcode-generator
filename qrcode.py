@@ -161,7 +161,8 @@ def init():
 2) Senha de wi-fi
 3) E-Mail
 4) Contato Básico
-5) Contato""")
+5) Contato
+""")
     opcao = int(input())
 
     if opcao == 1:
